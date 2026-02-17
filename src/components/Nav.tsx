@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+
 
 const Nav: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,11 +9,11 @@ const Nav: React.FC = () => {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
-  const aboutTimer = useRef<NodeJS.Timeout | null>(null);
-  const servicesTimer = useRef<NodeJS.Timeout | null>(null);
+const aboutTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const [aboutMobileOpen, setAboutMobileOpen] = useState(false);
-  const [servicesMobileOpen, setServicesMobileOpen] = useState(false);
+
+
 
   const toggleMenu = () => setIsOpen(!isOpen);
 

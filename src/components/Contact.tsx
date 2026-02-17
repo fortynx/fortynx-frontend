@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone } from "lucide-react";
+
 import React from "react";
 
 const Contact: React.FC = () => {
