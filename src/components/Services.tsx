@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
-import ServiceCardSkeleton from "../components/ServiceCardSkeleton";
+import { useState } from "react";
 
 // Import icons
 import {
@@ -38,52 +35,125 @@ const iconMap: Record<string, React.ElementType> = {
 interface Service {
   id: number;
   title: string;
-  slug: string;
   description: string;
   icon: string;
   category: string;
-  image: string | null;
-  features: string[];
 }
 
-const API_BASE = (import.meta.env.VITE_API_URL || "https://api.fortynx.in").replace(/\/$/, "");
+// ✅ STATIC SERVICES DATA
+const staticServices: Service[] = [
+  // 💻 Web Development
+  {
+    id: 1,
+    title: "Custom Website Development",
+    description:
+      "Modern, responsive, and scalable websites tailored to your business needs.",
+    icon: "monitor",
+    category: "Web Development",
+  },
+  {
+    id: 2,
+    title: "E-Commerce Development",
+    description:
+      "Secure and high-performance online stores to boost your digital sales.",
+    icon: "shopping-cart",
+    category: "Web Development",
+  },
+  {
+    id: 3,
+    title: "Web Application Development",
+    description:
+      "Powerful web applications built with scalable architecture and best practices.",
+    icon: "layout",
+    category: "Web Development",
+  },
+  {
+    id: 4,
+    title: "UI/UX Design",
+    description:
+      "User-focused design experiences that increase engagement and conversions.",
+    icon: "user",
+    category: "Web Development",
+  },
+  {
+    id: 5,
+    title: "Mobile app Development",
+    description:
+      "Flexible content management systems for easy updates and scalability.",
+    icon: "cloud",
+    category: "Web Development",
+  },
+  {
+    id: 6,
+    title: "Website Maintenance & Optimization",
+    description:
+      "Performance optimization and ongoing maintenance for smooth operations.",
+    icon: "smartphone",
+    category: "Web Development",
+  },
+
+  // 🔐 Cybersecurity
+  {
+    id: 7,
+    title: "Penetration Testing",
+    description:
+      "Identify vulnerabilities before attackers exploit them.",
+    icon: "bug",
+    category: "Cybersecurity",
+  },
+  {
+    id: 8,
+    title: "Vulnerability Assessment",
+    description:
+      "Comprehensive scanning and analysis of system weaknesses.",
+    icon: "alert-triangle",
+    category: "Cybersecurity",
+  },
+  {
+    id: 9,
+    title: "Web Application Security Audit",
+    description:
+      "Secure your applications against modern cyber threats.",
+    icon: "shield",
+    category: "Cybersecurity",
+  },
+  {
+    id: 10,
+    title: "Network Security Testing",
+    description:
+      "Protect your internal and external network infrastructure.",
+    icon: "network",
+    category: "Cybersecurity",
+  },
+  {
+    id: 11,
+    title: "Cloud Security Assessment",
+    description:
+      "Ensure your cloud infrastructure is secure and compliant.",
+    icon: "cloud",
+    category: "Cybersecurity",
+  },
+  {
+    id: 12,
+    title: "Security Monitoring & Incident Response",
+    description:
+      "24/7 monitoring and rapid response to security incidents.",
+    icon: "lock",
+    category: "Cybersecurity",
+  },
+];
 
 const Services = () => {
-  const [services, setServices] = useState<Service[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [activeTab, setActiveTab] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(true);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const isFullPage = location.pathname === "/services";
+  const categories = [
+    "Web Development",
+    "Cybersecurity",
+  ];
 
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const res = await axios.get(`${API_BASE}/api/services/`);
-        const serviceData: Service[] = res.data;
+  const [activeTab, setActiveTab] = useState<string>("Web Development");
 
-        setServices(serviceData);
-        const uniqueCategories = [...new Set(serviceData.map((s) => s.category))];
-        setCategories(uniqueCategories);
-
-        if (uniqueCategories.length > 0) {
-          setActiveTab(uniqueCategories[0]);
-        }
-      } catch (error) {
-        console.error("Failed to fetch services", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchServices();
-  }, []);
-
-  const groupedServices = categories.reduce((acc, category) => {
-    acc[category] = services.filter((service) => service.category === category);
-    return acc;
-  }, {} as Record<string, Service[]>);
+  const groupedServices = staticServices.filter(
+    (service) => service.category === activeTab
+  );
 
   return (
     <section
@@ -91,29 +161,12 @@ const Services = () => {
       className="bg-white py-16 px-4 sm:px-6 lg:px-8 dark:bg-black"
     >
       <div className="max-w-screen-xl mx-auto text-center">
-        {/* Heading */}
-        {isFullPage ? (
-          <div className="text-left mb-6">
-            <button
-              onClick={() => navigate(-1)}
-              className="text-blue-600 hover:underline text-sm"
-            >
-              ← Back
-            </button>
-            <h1 className="text-3xl font-bold mt-2 text-gray-900 dark:text-white">
-              All Services
-            </h1>
-          </div>
-        ) : (
-          <>
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
-              Our Services
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-              Fortynx delivers innovative solutions in Web Development and Cybersecurity to scale and protect your business.
-            </p>
-          </>
-        )}
+        <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+          Our Services
+        </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+          Fortynx delivers innovative solutions in Web Development and Cybersecurity to scale and protect your business.
+        </p>
 
         {/* Category Tabs */}
         <div className="flex justify-center gap-4 mb-12 flex-wrap">
@@ -134,41 +187,31 @@ const Services = () => {
 
         {/* Service Cards */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {loading
-            ? Array(6)
-                .fill(0)
-                .map((_, i) => <ServiceCardSkeleton key={i} />)
-            : (groupedServices[activeTab] || []).map((service) => {
-                const Icon = iconMap[service.icon.toLowerCase()] || Monitor;
-                return (
-                  <div
-                    key={service.id}
-                    className="group p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 hover:scale-[1.02] cursor-pointer border border-transparent hover:border-orange-400"
-                    onClick={() => navigate(`/service/${service.slug}`)}
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-2 rounded-full bg-orange-100 dark:bg-orange-900">
-                        <Icon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-                      </div>
-                      <span className="text-orange-500 text-xl opacity-0 group-hover:opacity-100 transition">
-                        →
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                      {service.title}
-                    </h3>
-                    {service.description ? (
-                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                        {service.description}
-                      </p>
-                    ) : (
-                      <p className="text-gray-400 text-sm italic">
-                        Description coming soon...
-                      </p>
-                    )}
+          {groupedServices.map((service) => {
+            const Icon =
+              iconMap[service.icon.toLowerCase()] || Monitor;
+
+            return (
+              <div
+                key={service.id}
+                className="p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 hover:scale-[1.02]"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="p-2 rounded-full bg-orange-100 dark:bg-orange-900">
+                    <Icon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
                   </div>
-                );
-              })}
+                </div>
+
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  {service.title}
+                </h3>
+
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
