@@ -154,6 +154,16 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
           <li><a href="/blog" className="hover:text-orange-500">Blog</a></li>
           <li><a href="/projects" className="hover:text-orange-500">Projects</a></li>
           <li><a href="/contact" className="hover:text-orange-500">Contact</a></li>
+          <li>
+            <a
+              href="https://institute.fortynx.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-md bg-orange-500 text-white font-bold hover:bg-orange-600 transition"
+            >
+              Fortynx Institute
+            </a>
+          </li>
         </ul>
 
         {/* Mobile Menu Toggle */}
@@ -175,6 +185,16 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
             <li><a href="/blog">Blog</a></li>
             <li><a href="/projects">Projects</a></li>
             <li><a href="/contact">Contact</a></li>
+            <li>
+              <a
+                href="https://institute.fortynx.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 rounded-md bg-orange-500 text-white font-bold hover:bg-orange-600 transition"
+              >
+                Fortynx Institute
+              </a>
+            </li>
 
           </ul>
         </div>

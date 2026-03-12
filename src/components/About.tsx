@@ -90,10 +90,8 @@ const About = () => {
 
         {/* Contact Info */}
         <div className="mt-12 text-center">
-          <p className="text-gray-500 text-sm">
-            📍 Head Office: Hyderabad, India
-            <br />
-            🏢 Branch Office: Srikakulam, Andhra Pradesh, India
+          <p className="text-gray-500 text-lg font-medium">
+            📍 Office Address : Opposite Aditya degree womens college, 80 feet road , srikakulam
           </p>
         </div>
       </div>

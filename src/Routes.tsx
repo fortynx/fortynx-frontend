@@ -37,7 +37,7 @@ const AllRoutes = () => {
 
         {/* Other routes */}
         <Route path="contact" element={<div className="pt-20"><Contact /></div>} />
-        <Route path="projects" element={<div className="pt-20"><ProjectsSection /></div>} />
+        <Route path="projects" element={<div className="pt-20"><ProjectsSection showAll /></div>} />
       </Route>
     </Routes>
   );
