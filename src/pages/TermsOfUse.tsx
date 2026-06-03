@@ -2,51 +2,48 @@ import React from "react";
 
 const TermsOfUse: React.FC = () => {
   return (
-    <div className="px-6">
-      <div className="max-w-4xl mx-auto py-12 flex flex-col gap-6">
-        <h1 className="text-3xl font-bold mb-2">Terms of Use</h1>
+    <div className="pt-28 pb-24 px-6 min-h-screen bg-slate-50 dark:bg-black text-gray-700 dark:text-gray-350 font-sans">
+      <div className="max-w-4xl mx-auto py-12 px-8 bg-white dark:bg-gray-950 border border-gray-150 dark:border-gray-900 rounded-3xl shadow-sm flex flex-col gap-6">
+        
+        <h1 className="text-3xl font-black text-gray-900 dark:text-white font-heading">Terms of Use</h1>
+        <div className="w-12 h-1 bg-orange-500 rounded-full -mt-2" />
 
-        <p>
-          By accessing or using our platform, you agree to be bound by these Terms of Use. Please read them carefully. If you do not agree, do not use the service.
+        <p className="leading-relaxed">
+          By accessing or using the Fortynx Technologies website or diagnostic services, you agree to be bound by these Terms of Use. Please review them carefully.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6">1. Acceptance of Terms</h2>
-        <p>
-          These terms constitute a binding agreement between you and us. We may update them occasionally; continued use after changes implies acceptance.
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white font-heading mt-4">1. Acceptance of Terms</h2>
+        <p className="leading-relaxed">
+          These terms represent a binding agreement. We reserve the right to modify these rules occasionally; continued visits after adjustments imply acceptance of new terms.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6">2. User Responsibilities</h2>
-        <p>
-          You agree to use the service lawfully, provide accurate information, and keep credentials secure. Unauthorized access or misuse is prohibited.
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white font-heading mt-4">2. Permitted User Activity</h2>
+        <p className="leading-relaxed">
+          You agree to utilize this platform solely for legitimate purposes. You must not attempt unauthorized code injection, spam scan queues, or scrape diagnostic outputs for commercial reuse.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6">3. Account & Authentication</h2>
-        <p>
-          Accounts are personal. You are responsible for all activity under your account. Notify us immediately if you suspect unauthorized access.
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white font-heading mt-4">3. Intellectual Property</h2>
+        <p className="leading-relaxed">
+          All materials published here (such as coding components, diagnostic scripts, site text, and case illustrations) are owned by Fortynx Technologies and are protected under international copyright codes.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6">4. Payments & Billing</h2>
-        <p>
-          Payment terms are governed by the selected plan. Fees may be non-refundable unless otherwise stated. You authorize us to charge methods on file.
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white font-heading mt-4">4. Liability Exclusions</h2>
+        <p className="leading-relaxed">
+          The diagnostic tools and estimators provide mock outputs and general approximations. We are not liable for any losses or damages arising from the use of our automated scans or informational articles.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6">5. Limitations of Liability</h2>
-        <p>
-          We are not liable for indirect, incidental, or consequential damages. Our total liability is limited to the amount you paid in the preceding period.
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white font-heading mt-4">5. Termination rights</h2>
+        <p className="leading-relaxed">
+          We reserve the right to suspend or block remote access to our domain checkers or estimators if user behavior breaches these terms.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6">6. Termination</h2>
-        <p>
-          We may suspend or terminate access for violations or at our discretion. You may cancel your account per the cancellation policy.
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white font-heading mt-4">6. Jurisdiction Codes</h2>
+        <p className="leading-relaxed">
+          These Terms of Use are governed by the laws of India, targeting the corporate seat jurisdiction in Vijayawada, without regard to global conflict of laws guidelines.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6">7. Governing Law</h2>
-        <p>
-          These terms are governed by the laws of the jurisdiction where our company is registered, without regard to conflict of laws principles.
-        </p>
-
-        <p className="text-sm text-gray-600 mt-10">
-          Last updated: August 1, 2025
+        <p className="text-xs text-gray-400 mt-10 border-t border-gray-100 dark:border-gray-900 pt-4">
+          Last updated: June 3, 2026
         </p>
       </div>
     </div>

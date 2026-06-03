@@ -3,69 +3,86 @@ import { Rocket, Eye, Globe, Lock } from "lucide-react";
 
 const Vision: React.FC = () => {
   return (
-    <section className="max-w-6xl mx-auto">
-
-      <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-900 dark:text-white">
-        Our Vision
-      </h1>
-
-      <p className="text-lg leading-relaxed max-w-3xl mx-auto mb-12 text-center text-gray-700 dark:text-gray-300">
-        To be a global leader in tech innovation and cybersecurity, trusted by
-        enterprises of all sizes, delivering reliable and cutting-edge solutions
-        that protect and empower.
-      </p>
-
-      {/* Vision Key Points with Icons */}
-      <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
-        <div className="flex items-start space-x-4">
-          <Rocket className="w-8 h-8 text-orange-500 mt-1" />
-          <div>
-            <h3 className="font-semibold text-xl text-gray-900 dark:text-white">
-              Innovation Driven
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300">
-              Continuously pioneer new technologies to solve tomorrow’s challenges.
-            </p>
-          </div>
+    <div className="pt-28 pb-24 px-6 min-h-screen bg-slate-50 dark:bg-black text-gray-700 dark:text-gray-350 font-sans">
+      <div className="max-w-4xl mx-auto py-12 px-8 bg-white dark:bg-gray-950 border border-gray-150 dark:border-gray-900 rounded-3xl shadow-sm space-y-12">
+        
+        {/* Header */}
+        <div className="text-center">
+          <span className="px-3.5 py-1.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-semibold tracking-wider uppercase">
+            Our Future
+          </span>
+          <h1 className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white font-heading mt-4">
+            Our Vision
+          </h1>
+          <div className="w-12 h-1 bg-cyan-500 rounded-full mx-auto mt-4" />
+          <p className="text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mt-6 text-gray-655 dark:text-gray-400">
+            To be a global leader in tech innovation and cybersecurity, trusted by enterprises of all sizes, delivering reliable and cutting-edge solutions that protect and empower.
+          </p>
         </div>
 
-        <div className="flex items-start space-x-4">
-          <Eye className="w-8 h-8 text-orange-500 mt-1" />
-          <div>
-            <h3 className="font-semibold text-xl text-gray-900 dark:text-white">
-              Transparency & Trust
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300">
-              Build strong relationships with clients through openness and integrity.
-            </p>
+        {/* Vision Key Points with Icons */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
+          
+          <div className="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 dark:bg-gray-900/50 border border-transparent dark:border-gray-900/40 hover:border-cyan-500/20 transition">
+            <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-500 shrink-0">
+              <Rocket className="w-6 h-6" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-gray-900 dark:text-white font-heading">
+                Innovation Driven
+              </h3>
+              <p className="text-sm text-gray-650 dark:text-gray-400 mt-1 leading-relaxed">
+                Continuously pioneer new methodologies to solve tomorrow’s server and marketing challenges.
+              </p>
+            </div>
           </div>
+
+          <div className="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 dark:bg-gray-900/50 border border-transparent dark:border-gray-900/40 hover:border-orange-500/20 transition">
+            <div className="p-3 rounded-xl bg-orange-500/10 text-orange-500 shrink-0">
+              <Eye className="w-6 h-6" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-gray-900 dark:text-white font-heading">
+                Transparency & Trust
+              </h3>
+              <p className="text-sm text-gray-655 dark:text-gray-400 mt-1 leading-relaxed">
+                Build long-term partnerships through clear metrics, direct access, and ethical conduct.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 dark:bg-gray-900/50 border border-transparent dark:border-gray-900/40 hover:border-purple-500/20 transition">
+            <div className="p-3 rounded-xl bg-purple-500/10 text-purple-500 shrink-0">
+              <Globe className="w-6 h-6" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-gray-900 dark:text-white font-heading">
+                Global Standards
+              </h3>
+              <p className="text-sm text-gray-655 dark:text-gray-400 mt-1 leading-relaxed">
+                Expand operational capacity to empower startups across international territories.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 dark:bg-gray-900/50 border border-transparent dark:border-gray-900/40 hover:border-cyan-500/20 transition">
+            <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-500 shrink-0">
+              <Lock className="w-6 h-6" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-gray-900 dark:text-white font-heading">
+                Uncompromising Shield
+              </h3>
+              <p className="text-sm text-gray-655 dark:text-gray-400 mt-1 leading-relaxed">
+                Deliver highly hardened, zero-leak configurations to preserve customer trust.
+              </p>
+            </div>
+          </div>
+
         </div>
 
-        <div className="flex items-start space-x-4">
-          <Globe className="w-8 h-8 text-orange-500 mt-1" />
-          <div>
-            <h3 className="font-semibold text-xl text-gray-900 dark:text-white">
-              Global Impact
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300">
-              Expand our reach to empower businesses worldwide with trusted tech solutions.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex items-start space-x-4">
-          <Lock className="w-8 h-8 text-orange-500 mt-1" />
-          <div>
-            <h3 className="font-semibold text-xl text-gray-900 dark:text-white">
-              Uncompromising Security
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300">
-              Deliver resilient cybersecurity measures that safeguard client data.
-            </p>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
   );
 };
 

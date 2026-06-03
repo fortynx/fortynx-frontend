@@ -43,24 +43,33 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 bg-white dark:bg-black shadow transition-all duration-300 ${
-        isScrolled ? "py-2 shadow-md" : "py-3"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${
+        isScrolled 
+          ? "py-2 bg-white/80 dark:bg-black/85 backdrop-blur-lg border-gray-250/10 dark:border-gray-800/30 shadow-lg" 
+          : "py-4 bg-white/90 dark:bg-black/90 md:bg-transparent md:border-transparent border-gray-250/10 dark:border-gray-800/30"
       }`}
     >
-      <div className="w-full px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <a href="/" className="flex items-center space-x-2">
           <img
             src="/assets/images/fortynx-logo.png"
             alt="Fortynx Logo"
             className={`transition-all duration-300 ${
-              isScrolled ? "h-8" : "h-12"
+              isScrolled ? "h-8" : "h-10 md:h-12"
             } w-auto`}
           />
         </a>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center space-x-10 text-gray-700 dark:text-gray-300 font-semibold text-xl">
+        <ul className="hidden md:flex items-center space-x-8 text-gray-700 dark:text-gray-300 font-medium text-[16px] tracking-wide font-sans">
+          
+          {/* Home */}
+          <li>
+            <a href="/" className="hover:text-orange-500 transition-colors duration-200">
+              Home
+            </a>
+          </li>
 
           {/* About Dropdown */}
           <li
@@ -68,23 +77,23 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
             onMouseEnter={handleAboutMouseEnter}
             onMouseLeave={handleAboutMouseLeave}
           >
-            <div className="flex items-center space-x-1 cursor-pointer hover:text-orange-500">
-              <span className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-orange-500 after:transition-all after:duration-300 group-hover:after:w-full">
-                About
-              </span>
-              <ChevronDown size={18} />
+            <div className="flex items-center space-x-1 cursor-pointer hover:text-orange-500 transition-colors duration-200">
+              <span className="relative py-1">About</span>
+              <ChevronDown size={14} className="mt-0.5 group-hover:rotate-180 transition-transform duration-300" />
             </div>
 
             <div
-              className={`absolute left-1/2 -translate-x-1/2 mt-3 w-48 bg-white dark:bg-gray-900 rounded shadow-lg transition-opacity duration-200 ease-in-out z-50 p-4 ${
-                aboutOpen ? "opacity-100 visible" : "opacity-0 invisible"
+              className={`absolute left-1/2 -translate-x-1/2 mt-3 w-48 bg-white/95 dark:bg-gray-950/95 backdrop-blur-md border border-gray-200/20 dark:border-gray-800/40 rounded-xl shadow-xl transition-all duration-200 ease-out z-50 p-2 ${
+                aboutOpen 
+                  ? "opacity-100 translate-y-0 visible" 
+                  : "opacity-0 -translate-y-2 invisible"
               }`}
             >
-              <ul className="space-y-2">
+              <ul className="space-y-1">
                 <li>
                   <a
                     href="/about/mission"
-                    className="block px-4 py-2 rounded-md hover:bg-orange-100 dark:hover:bg-orange-900 transition"
+                    className="block px-4 py-2 text-sm rounded-lg hover:bg-orange-50 dark:hover:bg-orange-950/50 hover:text-orange-500 transition-colors"
                   >
                     Our Mission
                   </a>
@@ -92,7 +101,7 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
                 <li>
                   <a
                     href="/about/vision"
-                    className="block px-4 py-2 rounded-md hover:bg-orange-100 dark:hover:bg-orange-900 transition"
+                    className="block px-4 py-2 text-sm rounded-lg hover:bg-orange-50 dark:hover:bg-orange-950/50 hover:text-orange-500 transition-colors"
                   >
                     Our Vision
                   </a>
@@ -107,59 +116,78 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
             onMouseEnter={handleServicesMouseEnter}
             onMouseLeave={handleServicesMouseLeave}
           >
-            <div className="flex items-center space-x-1 cursor-pointer hover:text-orange-500">
-              <span className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-orange-500 after:transition-all after:duration-300 group-hover:after:w-full">
-                Services
-              </span>
-              <ChevronDown size={18} />
+            <div className="flex items-center space-x-1 cursor-pointer hover:text-orange-500 transition-colors duration-200">
+              <span className="relative py-1">Services</span>
+              <ChevronDown size={14} className="mt-0.5 group-hover:rotate-180 transition-transform duration-300" />
             </div>
 
             <div
-              className={`absolute left-1/2 -translate-x-1/2 mt-3 w-[750px] bg-white dark:bg-gray-900 rounded shadow-lg transition-opacity duration-200 ease-in-out z-50 p-8 grid grid-cols-2 gap-10 ${
-                servicesOpen ? "opacity-100 visible" : "opacity-0 invisible"
+              className={`absolute left-1/2 -translate-x-1/2 mt-3 w-[920px] bg-white/95 dark:bg-gray-950/95 backdrop-blur-lg border border-gray-200/25 dark:border-gray-800/50 rounded-2xl shadow-2xl transition-all duration-250 ease-out z-50 p-8 grid grid-cols-3 gap-8 ${
+                servicesOpen 
+                  ? "opacity-100 translate-y-0 visible scale-100" 
+                  : "opacity-0 -translate-y-2 invisible scale-[0.98]"
               }`}
             >
               {/* Web Development */}
-              <div>
-                <h4 className="text-lg font-bold mb-3 text-black dark:text-white">
-                  Web Development
-                </h4>
+              <div className="space-y-4">
+                <div className="border-b border-orange-500/20 pb-2">
+                  <h4 className="text-sm font-bold tracking-wider uppercase text-orange-500">
+                    Web Development
+                  </h4>
+                </div>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="/#services" className="hover:text-orange-500">Custom Website Development</a></li>
-                  <li><a href="/#services" className="hover:text-orange-500">E-Commerce Development</a></li>
-                  <li><a href="/#services" className="hover:text-orange-500">Web Application Development</a></li>
-                  <li><a href="/#services" className="hover:text-orange-500">UI/UX Design</a></li>
-                  <li><a href="/#services" className="hover:text-orange-500">Mobile app Development</a></li>
-                  <li><a href="/#services" className="hover:text-orange-500">Website Maintenance & Optimization</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Custom Website Development</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">E-Commerce Development</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Web Application Development</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">UI/UX Design</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Mobile App Development</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Maintenance & Optimization</a></li>
                 </ul>
               </div>
 
               {/* Cybersecurity */}
-              <div>
-                <h4 className="text-lg font-bold mb-3 text-black dark:text-white">
-                  Cybersecurity
-                </h4>
+              <div className="space-y-4">
+                <div className="border-b border-cyan-500/20 pb-2">
+                  <h4 className="text-sm font-bold tracking-wider uppercase text-cyan-500">
+                    Cybersecurity
+                  </h4>
+                </div>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="/#services" className="hover:text-orange-500">Penetration Testing</a></li>
-                  <li><a href="/#services" className="hover:text-orange-500">Vulnerability Assessment</a></li>
-                  <li><a href="/#services" className="hover:text-orange-500">Web Application Security Audit</a></li>
-                  <li><a href="/#services" className="hover:text-orange-500">Network Security Testing</a></li>
-                  <li><a href="/#services" className="hover:text-orange-500">Cloud Security Assessment</a></li>
-                  <li><a href="/#services" className="hover:text-orange-500">Security Monitoring & Incident Response</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Penetration Testing (VAPT)</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Vulnerability Assessment</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Web Application Audit</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Network Security Testing</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Cloud Security Assessment</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Incident Response & Monitoring</a></li>
+                </ul>
+              </div>
+
+              {/* Digital Marketing */}
+              <div className="space-y-4">
+                <div className="border-b border-purple-500/20 pb-2">
+                  <h4 className="text-sm font-bold tracking-wider uppercase text-purple-500">
+                    Digital Marketing
+                  </h4>
+                </div>
+                <ul className="space-y-2 text-sm">
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Search Engine Optimization (SEO)</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Social Media Marketing (SMM)</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Pay-Per-Click Advertising (PPC)</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Content & Brand Strategy</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Email Marketing Campaigns</a></li>
+                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Lead Generation & Analytics</a></li>
                 </ul>
               </div>
             </div>
           </li>
-
-          <li><a href="/blog" className="hover:text-orange-500">Blog</a></li>
-          <li><a href="/projects" className="hover:text-orange-500">Projects</a></li>
-          <li><a href="/contact" className="hover:text-orange-500">Contact</a></li>
+          <li><a href="/projects" className="hover:text-orange-500 transition-colors">Projects</a></li>
+          <li><a href="/contact" className="hover:text-orange-500 transition-colors">Contact</a></li>
           <li>
             <a
               href="https://institute.fortynx.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-md bg-orange-500 text-white font-bold hover:bg-orange-600 transition"
+              className="px-5 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold hover:from-orange-600 hover:to-amber-600 shadow-md hover:shadow-orange-500/20 transition-all duration-200"
             >
               Fortynx Institute
             </a>
@@ -167,35 +195,36 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
         </ul>
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
-          <button onClick={toggleMenu}>
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+        <div className="md:hidden flex items-center">
+          <button 
+            onClick={toggleMenu}
+            className="text-gray-700 dark:text-gray-300 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-black px-6 pb-6">
-          <ul className="space-y-4 text-gray-700 dark:text-gray-300 font-semibold text-lg">
-
-            <li><a href="/">Home</a></li>
-            <li><a href="/#services">Services</a></li>
-            <li><a href="/about/mission">About</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li>
+        <div className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-md border-t border-gray-150/10 dark:border-gray-900/50 px-6 py-6 space-y-4">
+          <ul className="space-y-4 text-gray-750 dark:text-gray-300 font-semibold text-lg">
+            <li><a href="/" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Home</a></li>
+            <li><a href="/#services" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Services</a></li>
+            <li><a href="/about/mission" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">About Our Mission</a></li>
+            <li><a href="/about/vision" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">About Our Vision</a></li>
+            <li><a href="/projects" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Projects</a></li>
+            <li><a href="/contact" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Contact</a></li>
+            <li className="pt-2">
               <a
                 href="https://institute.fortynx.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-4 py-2 rounded-md bg-orange-500 text-white font-bold hover:bg-orange-600 transition"
+                className="block text-center px-4 py-2.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition"
               >
                 Fortynx Institute
               </a>
             </li>
-
           </ul>
         </div>
       )}

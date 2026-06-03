@@ -13,23 +13,35 @@ module.exports = {
     extend: {
       animation: {
         marquee: "marquee 30s linear infinite",
+        "spin-slow": "spin 25s linear infinite",
+        "float-slow": "float 8s ease-in-out infinite",
+        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-15px)" },
+        },
       },
       fontFamily: {
-        // extend is needed here to merge with root fontFamily config
         sans: [
-          'ui-sans-serif', 'system-ui', 
-          '-apple-system', 'BlinkMacSystemFont', 
-          '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 
-          'Arial', '"Noto Sans"', 'sans-serif',
-          '"Apple Color Emoji"', '"Segoe UI Emoji"', 
-          '"Segoe UI Symbol"', '"Noto Color Emoji"',
+          'Inter',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          '"Noto Sans"',
+          'sans-serif',
         ],
+        heading: ['Outfit', 'sans-serif'],
         header: ['"Anonymous Pro"', 'monospace'],
       },
     },

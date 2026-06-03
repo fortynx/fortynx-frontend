@@ -7,7 +7,6 @@ import Disclaimer from './pages/Disclaimer';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
 import MainLayout from "./layout/MainLayout";
-import Blog from './pages/Blog';
 
 // Components for About section
 import About from './components/About';
@@ -28,16 +27,15 @@ const AllRoutes = () => {
         <Route path="disclaimer" element={<Disclaimer />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="terms-of-use" element={<TermsOfUse />} />
-        <Route path="blog" element={<Blog />} />
 
         {/* About pages */}
-        <Route path="about" element={<div className="pt-20"><About /></div>} />
-        <Route path="about/mission" element={<div className="pt-20"><Mission /></div>} />
-        <Route path="about/vision" element={<div className="pt-20"><Vision /></div>} />
+        <Route path="about" element={<About />} />
+        <Route path="about/mission" element={<Mission />} />
+        <Route path="about/vision" element={<Vision />} />
 
         {/* Other routes */}
-        <Route path="contact" element={<div className="pt-20"><Contact /></div>} />
-        <Route path="projects" element={<div className="pt-20"><ProjectsSection showAll /></div>} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="projects" element={<ProjectsSection showAll />} />
       </Route>
     </Routes>
   );

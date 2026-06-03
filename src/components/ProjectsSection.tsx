@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowUpRight, Code, ShieldCheck, Zap } from 'lucide-react';
 
 type Project = {
   title: string;
   description: string;
   category: 'Web Development' | 'Digital Marketing' | 'Cybersecurity';
+  tech: string[];
+  metrics?: string;
 };
 
 type ProjectsSectionProps = {
@@ -15,120 +18,184 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ showAll = false }) =>
   const [activeCategory, setActiveCategory] = React.useState<'Web Development' | 'Digital Marketing' | 'Cybersecurity'>('Web Development');
 
   const projects: Project[] = [
+    // Web Development
     {
       title: 'Grocery App',
-      description:
-        'A full-stack grocery ordering app with product catalog, cart checkout, and order tracking in a responsive web interface.',
+      description: 'A premium full-stack grocery ordering system featuring product catalog filters, dynamic cart management, and stripe checkout.',
       category: 'Web Development',
+      tech: ['React', 'Node.js', 'Tailwind CSS', 'MongoDB'],
+      metrics: '99% Core Speed Score'
     },
     {
-      title: 'Restaurant Billing Application',
-      description:
-        'A fast, accurate restaurant billing system with table management, invoice generation, and secure payment integration.',
+      title: 'Restaurant Billing App',
+      description: 'A high-speed desktop & web application for table seating layouts, instant receipt printing, and secure POS integrations.',
       category: 'Web Development',
+      tech: ['Electron', 'React', 'Tailwind CSS', 'SQLite'],
+      metrics: '60% faster checkouts'
     },
     {
-      title: 'LMS with AI',
-      description:
-        'An AI-enhanced learning management platform with adaptive learning paths, personalized course recommendations, and analytics dashboards.',
+      title: 'LMS with Adaptive AI',
+      description: 'An AI-powered Learning Management System featuring personalized course recommendations and responsive analytics dashboards.',
       category: 'Web Development',
+      tech: ['Next.js', 'FastAPI', 'OpenAI API', 'PostgreSQL'],
+      metrics: 'Adaptive pathways'
     },
     {
-      title: 'E-commerce Website',
-      description:
-        'A modern e-commerce website example featuring product filtering, responsive design, secure checkout flow, and inventory management.',
+      title: 'Enterprise E-commerce',
+      description: 'A multi-vendor online marketplace optimized for massive inventory scaling, smart filtering, and secure payment pathways.',
       category: 'Web Development',
+      tech: ['React', 'Django', 'PostgreSQL', 'Redis'],
+      metrics: '10k concurrent sessions'
     },
     {
-      title: 'Corporate Landing Page',
-      description:
-        'A clean corporate landing page with optimized hero section, client testimonials, service overview, and contact CTA.',
+      title: 'Corporate Portal UI',
+      description: 'A clean corporate landing page with optimized visual layout sections, testimonial cards, and custom form captures.',
       category: 'Web Development',
+      tech: ['HTML5', 'Tailwind CSS', 'TypeScript', 'Vite'],
+      metrics: '100% lighthouse SEO'
     },
     {
-      title: 'Portfolio Website',
-      description:
-        'A personal portfolio site with projects gallery, skill sections, blog previews, and contact form conversion tracking.',
+      title: 'SaaS Analytics Dashboard',
+      description: 'An interactive business analytics dashboard featuring dynamic charting, secure user roles, and real-time logs parsing.',
       category: 'Web Development',
+      tech: ['React', 'ChartJS', 'Tailwind CSS', 'Express'],
+      metrics: 'Real-time sync'
     },
+
+    // Digital Marketing
     {
-      title: 'SaaS Dashboard',
-      description:
-        'An interactive SaaS analytics dashboard with dynamic charts, user management, and secure API integration.',
-      category: 'Web Development',
-    },
-    {
-      title: 'Digital Marketing Website',
-      description:
-        'A digital marketing showcase site with campaign analytics, lead capture forms, SEO optimization, and content management controls.',
+      title: 'SEO Audit Platform',
+      description: 'A comprehensive web auditing system tracking live page ranks, keyword densities, backlink volumes, and on-page improvements.',
       category: 'Digital Marketing',
+      tech: ['Ahrefs API', 'Python', 'React', 'ChartJS'],
+      metrics: '+140% traffic growth'
     },
     {
-      title: 'Social Media Campaign Tracker',
-      description:
-        'A tool for planning, tracking and analyzing social media campaigns with performance metrics and automation workflows.',
+      title: 'Social Campaign Tracker',
+      description: 'A marketing automation tool planning content calendars and tracking clicks across Meta, LinkedIn, and Twitter portals.',
       category: 'Digital Marketing',
+      tech: ['Buffer API', 'Django', 'PostgreSQL', 'Tailwind CSS'],
+      metrics: 'Omnichannel sync'
     },
     {
-      title: 'Email Automation Platform',
-      description:
-        'An automated email marketing platform with campaign templates, A/B testing, subscriber segmentation, and reporting.',
+      title: 'Email Automation Flows',
+      description: 'Automated email marketing software sending trigger campaigns, subscriber segmentation, and click-rate telemetry.',
       category: 'Digital Marketing',
+      tech: ['SendGrid', 'React', 'Node.js', 'MongoDB'],
+      metrics: '99% inbox placement'
     },
     {
-      title: 'SEO Optimization Suite',
-      description:
-        'An advanced SEO suite with keyword research tools, site audits, backlink tracking, and content scoring.',
+      title: 'Conversions Pixel Analytics',
+      description: 'Custom tracking dashboards recording pixel conversion rates, landing page click maps, and general ad-spend values.',
       category: 'Digital Marketing',
+      tech: ['Google Ads', 'Meta Pixel', 'GA4 Analytics'],
+      metrics: 'Direct ROI reporting'
     },
+
+    // Cybersecurity
     {
-      title: 'Cybersecurity Posture Monitoring',
-      description:
-        'A cyber defense portal for continuous monitoring, threat intelligence alerts, and secure configuration tracking for web app infrastructure.',
+      title: 'VAPT Posture Monitor',
+      description: 'Continuous port and domain vulnerability scanning system reporting server misconfigurations and outdated library errors.',
       category: 'Cybersecurity',
+      tech: ['Docker', 'Python', 'Wazuh', 'React'],
+      metrics: '24/7 endpoint checks'
     },
     {
-      title: 'Secure Web Application Hardening',
-      description:
-        'An enterprise-grade security service focused on application hardening, vulnerability remediations, and secure deployment pipelines.',
+      title: 'Web Application Hardening',
+      description: 'Enterprise-grade app security setup deploying Web Application Firewalls (WAF) and patching directory-traversal vulnerabilities.',
       category: 'Cybersecurity',
+      tech: ['Nginx', 'ModSecurity', 'OWASP Rules'],
+      metrics: 'Zero security leakage'
     },
     {
       title: 'Threat Detection Dashboard',
-      description:
-        'A dashboard for detecting, categorizing, and alerting on live security threats with machine learning-based anomaly scoring.',
+      description: 'Anomaly monitoring dashboard utilizing classification trees to flags suspicious remote access logs and DDoS spikes.',
       category: 'Cybersecurity',
+      tech: ['TensorFlow', 'FastAPI', 'React', 'ChartJS'],
+      metrics: 'ML-based alerts'
     },
     {
-      title: 'Identity & Access Management',
-      description:
-        'A secure IAM system with role-based access control, MFA, audit logs, and single sign-on integration.',
+      title: 'Enterprise Identity IAM',
+      description: 'Secure authentication modules implementing Role-Based Access Controls (RBAC), multi-factor tokens, and cryptographic logs.',
       category: 'Cybersecurity',
-    },
+      tech: ['OAuth2', 'JWT', 'Firebase Auth', 'Node.js'],
+      metrics: 'MFA Hardened'
+    }
   ];
 
   const filteredProjects = projects.filter((project) => project.category === activeCategory);
-  const projectsToShow = showAll ? filteredProjects : filteredProjects.slice(0, 2);
+  // Show first 3 projects on the home page if not showAll
+  const projectsToShow = showAll ? filteredProjects : filteredProjects.slice(0, 3);
+
+  // Category Color Codes
+  const getCategoryStyles = (cat: string) => {
+    switch (cat) {
+      case 'Web Development':
+        return {
+          glow: 'hover:border-orange-500/30 dark:hover:border-orange-500/20 hover:shadow-orange-500/5',
+          techBg: 'bg-orange-500/10 text-orange-650 dark:text-orange-400',
+          metricColor: 'text-orange-500',
+          icon: <Code size={14} className="text-orange-500" />
+        };
+      case 'Cybersecurity':
+        return {
+          glow: 'hover:border-cyan-500/30 dark:hover:border-cyan-500/20 hover:shadow-cyan-500/5',
+          techBg: 'bg-cyan-500/10 text-cyan-650 dark:text-cyan-400',
+          metricColor: 'text-cyan-500',
+          icon: <ShieldCheck size={14} className="text-cyan-500" />
+        };
+      case 'Digital Marketing':
+        return {
+          glow: 'hover:border-purple-500/30 dark:hover:border-purple-500/20 hover:shadow-purple-500/5',
+          techBg: 'bg-purple-500/10 text-purple-650 dark:text-purple-400',
+          metricColor: 'text-purple-500',
+          icon: <Zap size={14} className="text-purple-500" />
+        };
+      default:
+        return {
+          glow: 'hover:border-orange-500/30 dark:hover:border-orange-500/20',
+          techBg: 'bg-orange-500/10 text-orange-400',
+          metricColor: 'text-orange-500',
+          icon: <Code size={14} className="text-orange-500" />
+        };
+    }
+  };
+
+  const currentTheme = getCategoryStyles(activeCategory);
 
   return (
-    <section id="projects" className="py-16 bg-gray-100 dark:bg-black">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-6 text-center text-gray-800 dark:text-white">
-          Featured Projects
-        </h2>
+    <section id="projects" className="py-24 bg-gray-50 dark:bg-black relative overflow-hidden">
+      
+      <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+        
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <span className="px-3.5 py-1.5 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-xs font-semibold tracking-wider uppercase font-sans">
+            Our Works
+          </span>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mt-4 font-heading tracking-tight">
+            Featured Case Studies
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-amber-500 mx-auto mt-4 rounded-full" />
+        </div>
 
-        <div className="flex justify-center gap-3 mb-8 flex-wrap">
-          {['Web Development', 'Digital Marketing', 'Cybersecurity'].map((category) => {
+        {/* Tab Controls */}
+        <div className="flex justify-center gap-3 mb-14 flex-wrap">
+          {['Web Development', 'Cybersecurity', 'Digital Marketing'].map((category) => {
             const isActive = activeCategory === category;
+            const categoryTabColor = () => {
+              if (!isActive) return 'bg-white hover:bg-gray-100 dark:bg-gray-900/50 dark:hover:bg-gray-800/80 text-gray-700 dark:text-gray-300 border border-gray-200/50 dark:border-gray-800/30';
+              if (category === 'Web Development') return 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/15';
+              if (category === 'Cybersecurity') return 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-md shadow-cyan-500/15';
+              if (category === 'Digital Marketing') return 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md shadow-purple-500/15';
+              return 'bg-orange-500 text-white';
+            };
+            
             return (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category as 'Web Development' | 'Digital Marketing' | 'Cybersecurity')}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition ${
-                  isActive
-                    ? 'bg-orange-500 text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700'
-                }`}
+                className={`px-5 py-2.5 rounded-2xl text-[14px] font-semibold transition-all duration-250 ${categoryTabColor()}`}
               >
                 {category}
               </button>
@@ -136,52 +203,59 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ showAll = false }) =>
           })}
         </div>
 
-        {showAll ? (
-          ['Web Development', 'Digital Marketing', 'Cybersecurity'].map((section) => {
-            const sectionProjects = projectsToShow.filter((project) => project.category === section);
-            if (sectionProjects.length === 0) return null;
-            return (
-              <div key={section} className="mb-10">
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">{section}</h3>
-                <div className="grid md:grid-cols-2 gap-10">
-                  {sectionProjects.map((project) => (
-                    <div
-                      key={project.title}
-                      className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-transparent hover:border-orange-500 hover:shadow-lg transform transition-all duration-300"
-                    >
-                      <h4 className="text-2xl font-semibold text-center text-gray-900 dark:text-white mb-3">
-                        {project.title}
-                      </h4>
-                      <p className="text-gray-700 dark:text-gray-300 text-center">{project.description}</p>
-                    </div>
-                  ))}
+        {/* Dynamic Project Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projectsToShow.map((project) => (
+            <div
+              key={project.title}
+              className={`group bg-white dark:bg-gray-950 border border-gray-150 dark:border-gray-900/60 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 ${currentTheme.glow}`}
+            >
+              <div>
+                
+                {/* Metric/Card Header */}
+                <div className="flex justify-between items-start mb-4">
+                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${currentTheme.techBg}`}>
+                    {project.metrics || 'Case Study'}
+                  </span>
+                  <div className="text-gray-400 group-hover:text-orange-500 transition duration-200">
+                    <ArrowUpRight size={18} />
+                  </div>
                 </div>
-              </div>
-            );
-          })
-        ) : (
-          <div className="grid md:grid-cols-2 gap-10">
-            {projectsToShow.map((project) => (
-              <div
-                key={project.title}
-                className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-transparent hover:border-orange-500 hover:shadow-lg transform transition-all duration-300"
-              >
-                <h3 className="text-2xl font-semibold text-center text-gray-900 dark:text-white mb-3">
+
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white font-heading mb-2 group-hover:text-orange-500 transition duration-250">
                   {project.title}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 text-center">{project.description}</p>
-              </div>
-            ))}
-          </div>
-        )}
+                
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                  {project.description}
+                </p>
 
+              </div>
+
+              {/* Tech Badges List */}
+              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100 dark:border-gray-900/60">
+                {project.tech.map((techItem) => (
+                  <span 
+                    key={techItem}
+                    className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-md bg-gray-50 dark:bg-gray-900 border border-gray-200/40 dark:border-gray-800/40"
+                  >
+                    {techItem}
+                  </span>
+                ))}
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+        {/* View All Projects Button */}
         {!showAll && (
-          <div className="mt-8 flex justify-center">
+          <div className="mt-14 flex justify-center">
             <Link
               to="/projects"
-              className="px-6 py-3 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 transition"
+              className="px-6 py-3 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold text-sm hover:from-orange-600 hover:to-amber-600 shadow-md hover:shadow-orange-500/20 transition-all duration-200 transform hover:-translate-y-0.5"
             >
-              View All Projects
+              View All Projects Case Studies
             </Link>
           </div>
         )}
