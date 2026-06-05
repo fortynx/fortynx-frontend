@@ -232,17 +232,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ showAll = false }) =>
 
               </div>
 
-              {/* Tech Badges List */}
-              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100 dark:border-gray-900/60">
-                {project.tech.map((techItem) => (
-                  <span 
-                    key={techItem}
-                    className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-md bg-gray-50 dark:bg-gray-900 border border-gray-200/40 dark:border-gray-800/40"
-                  >
-                    {techItem}
-                  </span>
-                ))}
-              </div>
+
 
             </div>
           ))}

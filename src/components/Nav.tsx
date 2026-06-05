@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 
 const Nav: React.FC = () => {
@@ -51,7 +52,7 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <a href="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <img
             src="/assets/images/fortynx-logo.png"
             alt="Fortynx Logo"
@@ -59,16 +60,16 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
               isScrolled ? "h-8" : "h-10 md:h-12"
             } w-auto`}
           />
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center space-x-8 text-gray-700 dark:text-gray-300 font-medium text-[16px] tracking-wide font-sans">
           
           {/* Home */}
           <li>
-            <a href="/" className="hover:text-orange-500 transition-colors duration-200">
+            <Link to="/" className="hover:text-orange-500 transition-colors duration-200">
               Home
-            </a>
+            </Link>
           </li>
 
           {/* About Dropdown */}
@@ -91,20 +92,20 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
             >
               <ul className="space-y-1">
                 <li>
-                  <a
-                    href="/about/mission"
+                  <Link
+                    to="/about/mission"
                     className="block px-4 py-2 text-sm rounded-lg hover:bg-orange-50 dark:hover:bg-orange-950/50 hover:text-orange-500 transition-colors"
                   >
                     Our Mission
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/about/vision"
+                  <Link
+                    to="/about/vision"
                     className="block px-4 py-2 text-sm rounded-lg hover:bg-orange-50 dark:hover:bg-orange-950/50 hover:text-orange-500 transition-colors"
                   >
                     Our Vision
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -136,12 +137,12 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
                   </h4>
                 </div>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Custom Website Development</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">E-Commerce Development</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Web Application Development</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">UI/UX Design</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Mobile App Development</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Maintenance & Optimization</a></li>
+                  <li><Link to="/service/custom-website-development" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Custom Website Development</Link></li>
+                  <li><Link to="/service/e-commerce-development" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">E-Commerce Development</Link></li>
+                  <li><Link to="/service/web-application-development" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Web Application Development</Link></li>
+                  <li><Link to="/service/ui-ux-design" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">UI/UX Design</Link></li>
+                  <li><Link to="/service/mobile-app-development" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Mobile App Development</Link></li>
+                  <li><Link to="/service/maintenance-optimization" className="text-gray-600 dark:text-gray-450 hover:text-orange-500 block transition">Maintenance & Optimization</Link></li>
                 </ul>
               </div>
 
@@ -153,12 +154,12 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
                   </h4>
                 </div>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Penetration Testing (VAPT)</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Vulnerability Assessment</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Web Application Audit</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Network Security Testing</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Cloud Security Assessment</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Incident Response & Monitoring</a></li>
+                  <li><Link to="/service/penetration-testing-vapt" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Penetration Testing (VAPT)</Link></li>
+                  <li><Link to="/service/vulnerability-assessment" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Vulnerability Assessment</Link></li>
+                  <li><Link to="/service/web-application-audit" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Web Application Audit</Link></li>
+                  <li><Link to="/service/network-security-testing" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Network Security Testing</Link></li>
+                  <li><Link to="/service/cloud-security-assessment" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Cloud Security Assessment</Link></li>
+                  <li><Link to="/service/incident-response-monitoring" className="text-gray-600 dark:text-gray-450 hover:text-cyan-500 block transition">Incident Response & Monitoring</Link></li>
                 </ul>
               </div>
 
@@ -170,18 +171,18 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
                   </h4>
                 </div>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Search Engine Optimization (SEO)</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Social Media Marketing (SMM)</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Pay-Per-Click Advertising (PPC)</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Content & Brand Strategy</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Email Marketing Campaigns</a></li>
-                  <li><a href="/#services" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Lead Generation & Analytics</a></li>
+                  <li><Link to="/service/search-engine-optimization-seo" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Search Engine Optimization (SEO)</Link></li>
+                  <li><Link to="/service/social-media-marketing-smm" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Social Media Marketing (SMM)</Link></li>
+                  <li><Link to="/service/pay-per-click-advertising-ppc" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Pay-Per-Click Advertising (PPC)</Link></li>
+                  <li><Link to="/service/content-brand-strategy" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Content & Brand Strategy</Link></li>
+                  <li><Link to="/service/email-marketing-campaigns" className="text-gray-600 dark:text-gray-450 hover:text-purple-500 block transition">Email Marketing Campaigns</Link></li>
+                  <li><Link to="/service/lead-generation-analytics" className="text-gray-600 dark:text-gray-450 hover:text-purple-550 block transition">Lead Generation & Analytics</Link></li>
                 </ul>
               </div>
             </div>
           </li>
-          <li><a href="/projects" className="hover:text-orange-500 transition-colors">Projects</a></li>
-          <li><a href="/contact" className="hover:text-orange-500 transition-colors">Contact</a></li>
+          <li><Link to="/projects" className="hover:text-orange-500 transition-colors">Projects</Link></li>
+          <li><Link to="/contact" className="hover:text-orange-500 transition-colors">Contact</Link></li>
           <li>
             <a
               href="https://institute.fortynx.in"
@@ -209,12 +210,12 @@ const servicesTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
       {isOpen && (
         <div className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-md border-t border-gray-150/10 dark:border-gray-900/50 px-6 py-6 space-y-4">
           <ul className="space-y-4 text-gray-750 dark:text-gray-300 font-semibold text-lg">
-            <li><a href="/" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Home</a></li>
-            <li><a href="/#services" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Services</a></li>
-            <li><a href="/about/mission" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">About Our Mission</a></li>
-            <li><a href="/about/vision" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">About Our Vision</a></li>
-            <li><a href="/projects" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Projects</a></li>
-            <li><a href="/contact" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Contact</a></li>
+            <li><Link to="/" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Home</Link></li>
+            <li><Link to="/#services" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Services</Link></li>
+            <li><Link to="/about/mission" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">About Our Mission</Link></li>
+            <li><Link to="/about/vision" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">About Our Vision</Link></li>
+            <li><Link to="/projects" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Projects</Link></li>
+            <li><Link to="/contact" onClick={() => setIsOpen(false)} className="hover:text-orange-500 block">Contact</Link></li>
             <li className="pt-2">
               <a
                 href="https://institute.fortynx.in"

@@ -18,8 +18,39 @@ const About = () => {
   const [counts, setCounts] = useState([0, 0, 0]);
   const [selectedOffice, setSelectedOffice] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const intervalsRef = useRef<ReturnType<typeof setInterval>[]>([]);
 
   const targets = [45, 100, 1]; // 1 for ∞
+
+  const startCounting = () => {
+    // Clear any previously running intervals
+    intervalsRef.current.forEach(clearInterval);
+    intervalsRef.current = [];
+
+    const durations = [1200, 1200, 1200];
+
+    const newIntervals = targets.map((target, i) => {
+      let start = 0;
+      const step = Math.ceil(target / (durations[i] / 20));
+
+      const interval = setInterval(() => {
+        start += step;
+        if (start >= target) {
+          start = target;
+          clearInterval(interval);
+        }
+        setCounts((prev) => {
+          const updated = [...prev];
+          updated[i] = start;
+          return updated;
+        });
+      }, 20);
+
+      return interval;
+    });
+
+    intervalsRef.current = newIntervals;
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,30 +71,10 @@ const About = () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
+      // Clear all active intervals on unmount
+      intervalsRef.current.forEach(clearInterval);
     };
   }, []);
-
-  const startCounting = () => {
-    const durations = [1200, 1200, 1200];
-
-    targets.forEach((target, i) => {
-      let start = 0;
-      const step = Math.ceil(target / (durations[i] / 20));
-
-      const interval = setInterval(() => {
-        start += step;
-        if (start >= target) {
-          start = target;
-          clearInterval(interval);
-        }
-        setCounts((prev) => {
-          const updated = [...prev];
-          updated[i] = start;
-          return updated;
-        });
-      }, 20);
-    });
-  };
 
   const offices: Office[] = [
     {
@@ -235,7 +246,7 @@ const About = () => {
               <div className="relative w-full h-[220px] bg-slate-950/20 border border-gray-900/50 rounded-2xl my-4">
                 
                 {/* Connecting tracer lines between offices */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
                   <path d="M 20 45 Q 42 65 78 25" fill="none" stroke="url(#gradient-line)" strokeWidth="2" strokeDasharray="5,5" className="animate-pulse" />
                   <defs>
                     <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="100%">

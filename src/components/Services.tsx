@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { staticServices } from "../data/servicesData";
 
 // Import icons
 import {
@@ -43,167 +45,6 @@ const iconMap: Record<string, React.ElementType> = {
   mail: Mail,
   barchart: BarChart3,
 };
-
-interface Service {
-  id: number;
-  title: string;
-  description: string;
-  icon: string;
-  category: string;
-}
-
-// ✅ STATIC SERVICES DATA WITH DIGITAL MARKETING ADDED
-const staticServices: Service[] = [
-  // 💻 Web Development
-  {
-    id: 1,
-    title: "Custom Website Development",
-    description:
-      "High-speed, scalable, and responsive sites designed to build authority and match your unique vision.",
-    icon: "monitor",
-    category: "Web Development",
-  },
-  {
-    id: 2,
-    title: "E-Commerce Development",
-    description:
-      "Feature-rich, secure, and conversion-optimized online storefronts for lightning-fast checkouts.",
-    icon: "shopping-cart",
-    category: "Web Development",
-  },
-  {
-    id: 3,
-    title: "Web Application Development",
-    description:
-      "Enterprise-grade web systems built on modern JS frameworks with secure, robust backend APIs.",
-    icon: "layout",
-    category: "Web Development",
-  },
-  {
-    id: 4,
-    title: "UI/UX Design",
-    description:
-      "User-centric product designs and interactive wireframes built to maximize user retention.",
-    icon: "user",
-    category: "Web Development",
-  },
-  {
-    id: 5,
-    title: "Mobile App Development",
-    description:
-      "Cross-platform iOS and Android applications providing smooth animations and native speeds.",
-    icon: "smartphone",
-    category: "Web Development",
-  },
-  {
-    id: 6,
-    title: "Maintenance & Optimization",
-    description:
-      "Ongoing performance analysis, hosting setup, core web vital speedups, and regular system audits.",
-    icon: "cloud",
-    category: "Web Development",
-  },
-
-  // 🔐 Cybersecurity
-  {
-    id: 7,
-    title: "Penetration Testing (VAPT)",
-    description:
-      "Expose vulnerability flaws inside your applications and endpoints before actual attackers find them.",
-    icon: "bug",
-    category: "Cybersecurity",
-  },
-  {
-    id: 8,
-    title: "Vulnerability Assessment",
-    description:
-      "Automatic and manual port scans, configurations analysis, and risk scoring to evaluate security compliance.",
-    icon: "alert-triangle",
-    category: "Cybersecurity",
-  },
-  {
-    id: 9,
-    title: "Web Application Audit",
-    description:
-      "Comprehensive inspection of server side libraries, encryption protocols, and logic loopholes.",
-    icon: "shield",
-    category: "Cybersecurity",
-  },
-  {
-    id: 10,
-    title: "Network Security Testing",
-    description:
-      "Verify firewall logic, access controls, network segregation rules, and local device security.",
-    icon: "network",
-    category: "Cybersecurity",
-  },
-  {
-    id: 11,
-    title: "Cloud Security Assessment",
-    description:
-      "Assess and secure cloud architectures (AWS, GCP, Azure) against modern remote access breaches.",
-    icon: "cloud",
-    category: "Cybersecurity",
-  },
-  {
-    id: 12,
-    title: "Incident Response & Monitoring",
-    description:
-      "24/7 endpoint defense alerts and immediate disaster recovery steps to mitigate server intrusions.",
-    icon: "lock",
-    category: "Cybersecurity",
-  },
-
-  // 📈 Digital Marketing
-  {
-    id: 13,
-    title: "Search Engine Optimization (SEO)",
-    description:
-      "Drive organic growth and index highly on Google using advanced link profiles and on-page metadata audits.",
-    icon: "search",
-    category: "Digital Marketing",
-  },
-  {
-    id: 14,
-    title: "Social Media Marketing (SMM)",
-    description:
-      "Boost brand voice and customer interactions across Instagram, LinkedIn, and Facebook with creative campaigns.",
-    icon: "share",
-    category: "Digital Marketing",
-  },
-  {
-    id: 15,
-    title: "Pay-Per-Click Advertising (PPC)",
-    description:
-      "Deploy optimized targeted ad sets on Google Ads and Meta platforms to achieve direct customer signups.",
-    icon: "trending",
-    category: "Digital Marketing",
-  },
-  {
-    id: 16,
-    title: "Content & Brand Strategy",
-    description:
-      "Define clean logos, visual style rules, custom graphics, and copy blocks that tell your product's story.",
-    icon: "filetext",
-    category: "Digital Marketing",
-  },
-  {
-    id: 17,
-    title: "Email Marketing Campaigns",
-    description:
-      "Retain existing clients and qualify sales prospects via customized automated email journeys and flows.",
-    icon: "mail",
-    category: "Digital Marketing",
-  },
-  {
-    id: 18,
-    title: "Lead Generation & Analytics",
-    description:
-      "Map out user journeys, install analytics pipelines, and scale organic conversions with high data transparency.",
-    icon: "barchart",
-    category: "Digital Marketing",
-  },
-];
 
 const Services = () => {
   const categories = ["Web Development", "Cybersecurity", "Digital Marketing"];
@@ -301,7 +142,8 @@ const Services = () => {
             const Icon = iconMap[service.icon.toLowerCase()] || Monitor;
 
             return (
-              <div
+              <Link
+                to={`/service/${service.slug}`}
                 key={service.id}
                 className={`p-8 bg-white dark:bg-gray-950 border border-gray-150 dark:border-gray-900/60 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-350 transform hover:-translate-y-1.5 flex flex-col items-start text-left ${theme.glow}`}
               >
@@ -317,7 +159,7 @@ const Services = () => {
                 <p className="text-gray-650 dark:text-gray-400 text-sm leading-relaxed font-sans">
                   {service.description}
                 </p>
-              </div>
+              </Link>
             );
           })}
         </div>

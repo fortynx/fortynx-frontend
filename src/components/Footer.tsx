@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Facebook,
   Twitter,
@@ -16,13 +17,13 @@ const Footer: React.FC = () => {
         
         {/* Column 1: Brand & Bio */}
         <div className="lg:col-span-4 space-y-6">
-          <a href="/" className="inline-block">
+          <Link to="/" className="inline-block">
             <img
               src="/assets/images/fortynx-logo.png"
               alt="Fortynx Logo"
               className="h-10 w-auto"
             />
-          </a>
+          </Link>
           <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
             Fortynx is a premier technology agency helping enterprises build fast websites, run robust security audits, and deploy high-ROI marketing strategies.
           </p>
@@ -71,16 +72,16 @@ const Footer: React.FC = () => {
           </h4>
           <ul className="space-y-2.5 text-sm">
             <li>
-              <a href="/" className="hover:text-orange-500 transition duration-150">Home Page</a>
+              <Link to="/" className="hover:text-orange-500 transition duration-150">Home Page</Link>
             </li>
             <li>
-              <a href="/about/mission" className="hover:text-orange-500 transition duration-150">Our Mission</a>
+              <Link to="/about/mission" className="hover:text-orange-500 transition duration-150">Our Mission</Link>
             </li>
             <li>
-              <a href="/projects" className="hover:text-orange-500 transition duration-150">Featured Projects</a>
+              <Link to="/projects" className="hover:text-orange-500 transition duration-150">Featured Projects</Link>
             </li>
             <li>
-              <a href="/contact" className="hover:text-orange-500 transition duration-150">Contact Us</a>
+              <Link to="/contact" className="hover:text-orange-500 transition duration-150">Contact Us</Link>
             </li>
           </ul>
         </div>
@@ -92,19 +93,19 @@ const Footer: React.FC = () => {
           </h4>
           <ul className="space-y-2.5 text-sm">
             <li>
-              <a href="/#services" className="hover:text-orange-500 transition duration-150">Web App Development</a>
+              <Link to="/#services" className="hover:text-orange-500 transition duration-150">Web App Development</Link>
             </li>
             <li>
-              <a href="/#services" className="hover:text-orange-500 transition duration-150">Penetration Testing (VAPT)</a>
+              <Link to="/#services" className="hover:text-orange-500 transition duration-150">Penetration Testing (VAPT)</Link>
             </li>
             <li>
-              <a href="/#services" className="hover:text-orange-500 transition duration-150">Cloud Security Assessment</a>
+              <Link to="/#services" className="hover:text-orange-500 transition duration-150">Cloud Security Assessment</Link>
             </li>
             <li>
-              <a href="/#services" className="hover:text-orange-500 transition duration-150">Search Engine Optimization</a>
+              <Link to="/#services" className="hover:text-orange-500 transition duration-150">Search Engine Optimization</Link>
             </li>
             <li>
-              <a href="/#services" className="hover:text-orange-500 transition duration-150">Pay-Per-Click Advertising</a>
+              <Link to="/#services" className="hover:text-orange-500 transition duration-150">Pay-Per-Click Advertising</Link>
             </li>
           </ul>
         </div>
@@ -145,9 +146,9 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="flex space-x-6">
-          <a href="/privacy-policy" className="hover:text-orange-500 transition">Privacy Policy</a>
-          <a href="/terms-of-use" className="hover:text-orange-500 transition">Terms of Use</a>
-          <a href="/disclaimer" className="hover:text-orange-500 transition">Disclaimer</a>
+          <Link to="/privacy-policy" className="hover:text-orange-500 transition">Privacy Policy</Link>
+          <Link to="/terms-of-use" className="hover:text-orange-500 transition">Terms of Use</Link>
+          <Link to="/disclaimer" className="hover:text-orange-500 transition">Disclaimer</Link>
         </div>
       </div>
     </footer>

@@ -1,6 +1,5 @@
 
 import React from "react";
-import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Services from "./components/Services";
@@ -15,7 +14,6 @@ import "/public/assets/css/particles.css";
 const App: React.FC = () => {
   return (
     <>
-      <Nav />
       <Hero />
       <About />
     
