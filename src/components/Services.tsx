@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { staticServices } from "../data/servicesData";
+import SEO from "./SEO";
 
 // Import icons
 import {
@@ -46,7 +47,7 @@ const iconMap: Record<string, React.ElementType> = {
   barchart: BarChart3,
 };
 
-const Services = () => {
+const Services = ({ isPage = false }: { isPage?: boolean }) => {
   const categories = ["Web Development", "Cybersecurity", "Digital Marketing"];
   const [activeTab, setActiveTab] = useState<string>("Web Development");
 
@@ -110,6 +111,14 @@ const Services = () => {
       id="services"
       className="bg-slate-50 py-24 px-4 sm:px-6 lg:px-8 dark:bg-black relative overflow-hidden"
     >
+      {isPage && (
+        <SEO 
+          title="Digital Services – Fortynx Technologies | Web Development, SEO & cybersecurity"
+          description="Explore our specialized services including custom web engineering, VAPT audits, threat response, SEO campaigns, and pay-per-click ads in Vijaywada & Hyderabad."
+          keywords="Fortynx services, web design solutions, digital marketing packages, cybersecurity auditing, local SEO agency"
+          ogUrl="https://fortynx.com/services"
+        />
+      )}
       {/* Background radial highlight */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-orange-500/5 via-cyan-500/5 to-purple-500/5 rounded-full blur-3xl pointer-events-none" />
 

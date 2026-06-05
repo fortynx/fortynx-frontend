@@ -1,9 +1,16 @@
 import React from "react";
 import { Rocket, Eye, Globe, Lock } from "lucide-react";
+import SEO from "../components/SEO";
 
 const Vision: React.FC = () => {
   return (
     <div className="pt-28 pb-24 px-6 min-h-screen bg-slate-50 dark:bg-black text-gray-700 dark:text-gray-350 font-sans">
+      <SEO 
+        title="Our Vision – Fortynx Technologies | Web Development & Digital Marketing"
+        description="Discover Fortynx's vision of becoming a global leader in secure technology, web design, and digital marketing innovation."
+        keywords="Fortynx vision, tech innovation, digital growth agency vijaywada, top marketing agency hyderabad"
+        ogUrl="https://fortynx.com/about/vision"
+      />
       <div className="max-w-4xl mx-auto py-12 px-8 bg-white dark:bg-gray-950 border border-gray-150 dark:border-gray-900 rounded-3xl shadow-sm space-y-12">
         
         {/* Header */}

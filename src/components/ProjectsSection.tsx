@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Code, ShieldCheck, Zap } from 'lucide-react';
+import SEO from './SEO';
 
 type Project = {
   title: string;
@@ -12,9 +13,10 @@ type Project = {
 
 type ProjectsSectionProps = {
   showAll?: boolean;
+  isPage?: boolean;
 };
 
-const ProjectsSection: React.FC<ProjectsSectionProps> = ({ showAll = false }) => {
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ showAll = false, isPage = false }) => {
   const [activeCategory, setActiveCategory] = React.useState<'Web Development' | 'Digital Marketing' | 'Cybersecurity'>('Web Development');
 
   const projects: Project[] = [
@@ -165,6 +167,14 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ showAll = false }) =>
 
   return (
     <section id="projects" className="py-24 bg-gray-50 dark:bg-black relative overflow-hidden">
+      {isPage && (
+        <SEO 
+          title="Case Studies & Projects – Fortynx Technologies"
+          description="Explore our portfolio of secure web engineering, custom application development, VAPT audits, and high-ROI digital marketing campaigns in Vijaywada & Hyderabad."
+          keywords="Fortynx projects, web development portfolio, digital marketing case studies, cybersecurity VAPT audits"
+          ogUrl="https://fortynx.com/projects"
+        />
+      )}
       
       <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
         

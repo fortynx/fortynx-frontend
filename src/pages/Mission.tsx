@@ -1,9 +1,16 @@
 import React from "react";
 import { ShieldCheck, Cpu, Globe, Users, Quote } from "lucide-react";
+import SEO from "../components/SEO";
 
 const Mission: React.FC = () => {
   return (
     <div className="pt-28 pb-24 px-6 min-h-screen bg-slate-50 dark:bg-black text-gray-700 dark:text-gray-350 font-sans">
+      <SEO 
+        title="Our Mission – Fortynx Technologies | Web Development & Digital Marketing"
+        description="Learn about Fortynx's mission to provide secure, innovative web development and digital marketing solutions in Vijaywada, Hyderabad, and globally."
+        keywords="Fortynx mission, web development vijaywada, digital marketing hyderabad, secure technology solutions"
+        ogUrl="https://fortynx.com/about/mission"
+      />
       <div className="max-w-4xl mx-auto py-12 px-8 bg-white dark:bg-gray-950 border border-gray-150 dark:border-gray-900 rounded-3xl shadow-sm space-y-12">
         
         {/* Header */}

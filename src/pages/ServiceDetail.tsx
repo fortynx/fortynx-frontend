@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import ServiceDetailSkeleton from "../components/ServiceDetailSkeleton";
+import SEO from "../components/SEO";
 import { staticServices, Service } from "../data/servicesData";
 import { 
   ChevronRight, 
@@ -93,6 +94,18 @@ const ServiceDetail: React.FC = () => {
           </div>
         ) : (
           <div className="bg-white dark:bg-gray-950 border border-gray-150 dark:border-gray-900 rounded-3xl p-8 md:p-12 shadow-md relative">
+            <SEO 
+              title={`${service.title} – Best ${service.category} in Vijaywada & Hyderabad | Fortynx`}
+              description={service.description}
+              keywords={
+                service.category === "Web Development"
+                  ? `best web development in vijaywada, web development best in vijaywada, best web development in hyderabad, web development best in hyderabad, ${service.title} vijaywada, ${service.title} hyderabad, web design company vijaywada, Fortynx`
+                  : service.category === "Digital Marketing"
+                  ? `best digital marketing in vijaywada, top digital marketing in vijaywada, best digital marketing in hyderabad, top digital marketing in hyderabad, ${service.title} vijaywada, ${service.title} hyderabad, digital marketing agency, Fortynx`
+                  : `best cybersecurity in vijaywada, top cybersecurity in hyderabad, VAPT audits vijaywada, VAPT audits hyderabad, ${service.title} vijaywada, ${service.title} hyderabad, Fortynx`
+              }
+              ogUrl={`https://fortynx.com/service/${service.slug}`}
+            />
             
             {/* Header: Breadcrumbs */}
             <nav aria-label="breadcrumb" className="text-xs sm:text-sm text-gray-400 dark:text-gray-500 mb-8 flex items-center gap-2 font-mono tracking-wider">

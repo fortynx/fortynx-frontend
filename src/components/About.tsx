@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { MapPin, Award, ShieldAlert, CheckCircle2, ChevronRight, Activity } from "lucide-react";
+import SEO from "./SEO";
 
 interface Office {
   city: string;
@@ -14,7 +15,7 @@ interface Office {
   textColor: string;
 }
 
-const About = () => {
+const About = ({ isPage = false }: { isPage?: boolean }) => {
   const [counts, setCounts] = useState([0, 0, 0]);
   const [selectedOffice, setSelectedOffice] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -121,6 +122,14 @@ const About = () => {
       className="bg-white py-24 px-4 sm:px-6 lg:px-8 dark:bg-gray-950 relative overflow-hidden" 
       ref={sectionRef}
     >
+      {isPage && (
+        <SEO 
+          title="About Fortynx – Best Web Development & Digital Marketing in Vijaywada & Hyderabad"
+          description="Learn more about Fortynx Technologies. We provide best web development services and top digital marketing solutions in Vijaywada and Hyderabad."
+          keywords="about Fortynx, web development vijaywada, digital marketing agency hyderabad, best technology company vijaywada"
+          ogUrl="https://fortynx.com/about"
+        />
+      )}
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Section Header */}

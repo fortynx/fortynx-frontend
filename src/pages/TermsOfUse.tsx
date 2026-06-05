@@ -1,8 +1,15 @@
 import React from "react";
+import SEO from "../components/SEO";
 
 const TermsOfUse: React.FC = () => {
   return (
     <div className="pt-28 pb-24 px-6 min-h-screen bg-slate-50 dark:bg-black text-gray-700 dark:text-gray-350 font-sans">
+      <SEO 
+        title="Terms of Use – Fortynx Technologies"
+        description="Review the terms and conditions of using Fortynx Technologies' services, website, and digital audit tools."
+        keywords="terms of use, terms and conditions, Fortynx terms"
+        ogUrl="https://fortynx.com/terms-of-use"
+      />
       <div className="max-w-4xl mx-auto py-12 px-8 bg-white dark:bg-gray-950 border border-gray-150 dark:border-gray-900 rounded-3xl shadow-sm flex flex-col gap-6">
         
         <h1 className="text-3xl font-black text-gray-900 dark:text-white font-heading">Terms of Use</h1>

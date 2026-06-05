@@ -1,8 +1,15 @@
 import React from "react";
+import SEO from "../components/SEO";
 
 const PrivacyPolicy: React.FC = () => {
   return (
     <div className="pt-28 pb-24 px-6 min-h-screen bg-slate-50 dark:bg-black text-gray-700 dark:text-gray-350 font-sans">
+      <SEO 
+        title="Privacy Policy – Fortynx Technologies"
+        description="Learn about how Fortynx Technologies collects, uses, and safeguards your personal data and privacy."
+        keywords="privacy policy, data collection, Fortynx privacy"
+        ogUrl="https://fortynx.com/privacy-policy"
+      />
       <div className="max-w-4xl mx-auto py-12 px-8 bg-white dark:bg-gray-950 border border-gray-150 dark:border-gray-900 rounded-3xl shadow-sm flex flex-col gap-6">
         
         <h1 className="text-3xl font-black text-gray-900 dark:text-white font-heading">Privacy Policy</h1>

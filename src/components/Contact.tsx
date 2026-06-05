@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Send, CheckCircle2, Calculator, Phone, Mail, MapPin } from "lucide-react";
+import SEO from "./SEO";
 
-const Contact: React.FC = () => {
+const Contact = ({ isPage = false }: { isPage?: boolean }) => {
   const [formState, setFormState] = useState({
     name: "",
     phone: "",
@@ -91,6 +92,14 @@ const Contact: React.FC = () => {
 
   return (
     <section className="bg-slate-50 py-24 px-4 sm:px-6 lg:px-8 dark:bg-black relative overflow-hidden" id="contact">
+      {isPage && (
+        <SEO 
+          title="Contact Fortynx – Free Digital Consultation & Cost Calculator"
+          description="Get in touch with the Fortynx team for best web development & digital marketing services in Vijaywada & Hyderabad. Calculate your project cost instantly."
+          keywords="contact Fortynx, web development cost estimator, digital marketing quote vijaywada, cybersecurity consulting hyderabad"
+          ogUrl="https://fortynx.com/contact"
+        />
+      )}
       {/* Background radial effects */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />

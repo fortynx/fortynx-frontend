@@ -1,8 +1,15 @@
 import React from "react";
+import SEO from "../components/SEO";
 
 const Disclaimer: React.FC = () => {
   return (
     <div className="pt-28 pb-24 px-6 min-h-screen bg-slate-50 dark:bg-black text-gray-700 dark:text-gray-300 font-sans">
+      <SEO 
+        title="Disclaimer – Fortynx Technologies"
+        description="Read the disclaimer statement for Fortynx Technologies. Legal information and terms regarding accuracy and third-party links."
+        keywords="disclaimer, legal info, Fortynx disclaimer"
+        ogUrl="https://fortynx.com/disclaimer"
+      />
       <div className="max-w-4xl mx-auto py-12 px-8 bg-white dark:bg-gray-950 border border-gray-150 dark:border-gray-900 rounded-3xl shadow-sm flex flex-col gap-6">
         <h1 className="text-3xl font-black text-gray-900 dark:text-white font-heading">Disclaimer</h1>
         <div className="w-12 h-1 bg-orange-500 rounded-full -mt-2" />
